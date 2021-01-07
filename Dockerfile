@@ -5,7 +5,7 @@
 # Pull base image.
 FROM telegraf:latest
 
-RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartmontools python python-pip && \
+RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartmontools python3 python3-pip pipexec && \
     rm -rf /var/lib/apt/lists/*
 
 VOLUME /src/
@@ -14,4 +14,6 @@ ADD influxspeedtest /src/influxspeedtest
 
 RUN pip install -r /src/requirements.txt
 
-RUN ["python", "-u", "/src/influxspeedtest.py"]
+RUN pipexec -p /var/run/influxspeedtest.pid -s 5 -- python -u /src/influxspeedtest.py
+
+#RUN ["python", "-u", "/src/influxspeedtest.py"]
