@@ -5,7 +5,7 @@
 # Pull base image.
 FROM telegraf:latest
 
-RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartmontools python3 python3-pip pipexec && \
+RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartmontools python3 python3-pip pipexec nano && \
     rm -rf /var/lib/apt/lists/*
 
 VOLUME /src/
