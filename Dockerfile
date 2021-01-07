@@ -12,7 +12,7 @@ VOLUME /src/
 COPY influxspeedtest.py requirements.txt config.ini /src/
 ADD influxspeedtest /src/influxspeedtest
 
-RUN pip3 install -r /src/requirements.txt
+RUN pip install -r /src/requirements.txt
 
 RUN pipexec -p /var/run/influxspeedtest.pid -s 5 -- /usr/bin/python3 -u /src/influxspeedtest.py
 
