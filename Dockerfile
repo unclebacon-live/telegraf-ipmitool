@@ -16,7 +16,6 @@ WORKDIR /src
 RUN pip3 install -r /src/requirements.txt
 
 RUN chmod +x /src/run.sh
-RUN /src/run.sh &
 
 #RUN pipexec -p /var/run/influxspeedtest.pid -s 5 -- /usr/bin/python3 -u /src/influxspeedtest.py
 
