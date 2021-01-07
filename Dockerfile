@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartm
 VOLUME /src/
 COPY influxspeedtest.py requirements.txt config.ini /src/
 ADD influxspeedtest /src/influxspeedtest
-WORKDIR /src
 
 RUN pip3 install -r /src/requirements.txt
 
