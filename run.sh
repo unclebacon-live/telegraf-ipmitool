@@ -1,5 +1,4 @@
-#!/bin/sh
-cd /src
+#!/bin/sh  
 while true  
 do  
   /usr/bin/python3 -u /src/influxspeedtest.py
