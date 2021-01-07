@@ -9,14 +9,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartm
     rm -rf /var/lib/apt/lists/*
 
 VOLUME /src/
-COPY influxspeedtest.py requirements.txt config.ini run /src/
+COPY influxspeedtest.py requirements.txt config.ini /src/
 ADD influxspeedtest /src/influxspeedtest
 WORKDIR /src
 
 RUN pip3 install -r /src/requirements.txt
 
-RUN chmod +x /src/run
-
-#RUN pipexec -p /var/run/influxspeedtest.pid -s 5 -- /usr/bin/python3 -u /src/influxspeedtest.py
+RUN pipexec -p /var/run/influxspeedtest.pid -s 5 -- /usr/bin/python3 -u /src/influxspeedtest.py
 
 #RUN ["python", "-u", "/src/influxspeedtest.py"]
