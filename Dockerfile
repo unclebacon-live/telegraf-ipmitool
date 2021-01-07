@@ -5,7 +5,6 @@
 # Pull base image.
 FROM telegraf:latest
 
-<<<<<<< HEAD
 RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartmontools python3 python3-pip pipexec nano && \
     rm -rf /var/lib/apt/lists/*
 
@@ -22,8 +21,3 @@ RUN /src/run.sh &
 #RUN pipexec -p /var/run/influxspeedtest.pid -s 5 -- /usr/bin/python3 -u /src/influxspeedtest.py
 
 #RUN ["python", "-u", "/src/influxspeedtest.py"]
-=======
-RUN apt-get update && apt-get install -y --no-install-recommends ipmitool smartmontools && \
-    rm -rf /var/lib/apt/lists/*
-
->>>>>>> parent of f94f4b3... Update Dockerfile
